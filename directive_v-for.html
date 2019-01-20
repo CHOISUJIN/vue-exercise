@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h2>오늘의 할일</h2>
+        <ul>
+            <li v-for="todo in todos">
+               {{todo.key}} {{ todo.text }}
+            </li>
+        </ul>
+    </div>
+
+    <script>
+     var app = new Vue({
+        el: '#app',
+        data: {
+            todos : [
+                {key:0, text: "Vue.js 공부"},
+                {key:1, text: "Javascript 공부"}
+            ]
+        }
+     })
+    </script>
+
+
+    
+</body>
+</html>

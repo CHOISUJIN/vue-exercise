@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+
+    <style>
+    [v-cloak] {
+        display: none;
+    }
+    </style>
+</head>
+
+<body>
+
+    <div id="app">
+        <h1>
+            Hello <span v-text="name"></span>
+        </h1>
+    </div>
+
+    <div id="app2">
+        <h1>
+            Hello <span v-html="name"></span>
+        </h1>
+    </div>
+
+    <div id="app3">
+        <h1>
+            Hello <span v-show="visible" v-html="name"></span>
+        </h1>
+    </div>
+
+    <div id="app4" v-cloak>
+        <h1 v-if="value > 5"> value가 5보다 크군요</h1>
+        <h1 v-else-if="value === 5">값이 5네요</h1>
+        <h1 v-else> value가 5보다 작아요 </h1>
+        <h2 v-once>초기값 : {{value}}</h2>
+        <h2>현재값 : {{value}}</h2>
+        <h1 v-pre>{{이건 그대로 렌더링해줘요}}</h1>
+    </div>
+
+    <script>
+
+        var app4 = new Vue({
+            el:'#app4',
+            data: {
+                value: 0
+            }
+        })
+
+
+        var app = new Vue({
+            el: '#app',
+            data: {
+                name: '<i>이탈릭</i>'
+            }
+        })
+
+        var app2 = new Vue({
+            el: '#app2',
+            data: {
+                name: '<i>이탈릭</i>'
+            }
+        })
+
+        var app3 = new Vue({
+            el: '#app3',
+            data : {
+                name: '<i>이탈릭</i>',
+                visible: true
+            }
+        })
+    </script>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <script src="https://unpkg.com/vue"></script>
+
+</head>
+
+<body>
+    <div id="app">
+        <p>{{foo}}</p>
+        <button v-on:click="foo = 'baz'">Change it</button>
+    </div>
+    <script>
+
+        // 데이터 객체
+        var data = { a: 1 }
+
+        // Vue인스턴스에 데이터 객체 추가
+        var vm = new Vue({
+            data: data
+        })
+
+        document.writeln(vm.a === data.a);
+
+        vm.a = 3;
+        document.writeln(data.a);
+
+        var obj = {
+            foo: 'bar'
+        }
+
+        Object.freeze(obj)
+
+        new Vue({
+            el: '#app',
+            data: obj
+        })
+
+        new Vue({
+            data:{
+                a:1
+            },
+            created:function(){
+                document.writeln("a is :" + this.a);
+            }
+        })
+    </script>
+</body>
+
+</html>
