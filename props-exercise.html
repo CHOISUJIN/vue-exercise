@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>하위컴포넌트에서 상위 컴포넌트 메세지 출력</title>
+  </head>
+  <body>
+    <div id="app">
+      <child-component v-bind:propsdata="message"></child-component>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
+    <script type="text/javascript">
+
+      Vue.component('child-component', {
+        props: ['propsdata'],
+        template: '<p>{{propsdata}}</p>',
+      });
+
+      var app = new Vue({
+          el: '#app',
+          data: {
+            message : '상위 컴포넌트 message'
+          }
+      });
+    </script>
+  </body>
+</html>
