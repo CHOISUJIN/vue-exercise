@@ -1,7 +1,8 @@
 <template>
   <div id="app">
-    Parent counter : {{parentCounter}}
-  
+    Parent counter : {{parentCounter}} <br>
+    <button v-on:click="addCounter">+</button>
+
 
    <!-- Parent counter : {{this.$store.state.counter}} <br/>
    <button v-on:click="addCounter">+</button>
@@ -14,6 +15,7 @@
 
 <script>
 import {mapGetters} from 'vuex'
+import {mapMutations} from 'vuex'
 import Child from './Child';
 
 export default {
@@ -24,7 +26,16 @@ export default {
     ...mapGetters({
       parentCounter : 'getCounter'
     })
-  }
+  },
+  methods: {
+    addCounter() {
+      //this.$store.state.counter++;
+      this.$store.commit('addCounter');
+    },
+    ...mapMutations({
+      addCounter : 'addCounter'
+    })
+  },
   // computed: {
   //   parentCounter() {
   //     return this.$store.getters.getCounter;

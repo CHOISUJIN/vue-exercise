@@ -5,11 +5,16 @@ Vue.use(Vuex);
 
 export const store = new Vuex.Store({
     state : {
-        counter: 10
+        counter: 0
     },
     getters:{
         getCounter: function(state){
             return state.counter;
+        }
+    },
+    mutations: {
+        addCounter: function(state, payload) {
+            return state.counter++;
         }
     }
 });
