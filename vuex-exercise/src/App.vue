@@ -2,7 +2,7 @@
   <div id="app">
     Parent counter : {{parentCounter}} <br>
     <button v-on:click="addCounter">+</button>
-
+    <button @click="asyncIncrement({by: 50, duration: 500})">Increment</button>
 
    <!-- Parent counter : {{this.$store.state.counter}} <br/>
    <button v-on:click="addCounter">+</button>
@@ -28,13 +28,16 @@ export default {
     })
   },
   methods: {
-    addCounter() {
-      //this.$store.state.counter++;
-      this.$store.commit('addCounter');
-    },
-    ...mapMutations({
-      addCounter : 'addCounter'
-    })
+    addcounter(){
+      this.$store.dispatch('addcounter');
+    }
+    // addCounter() {
+    //   //this.$store.state.counter++;
+    //   this.$store.commit('addCounter');
+    // },
+    // ...mapMutations({
+    //   addCounter : 'addCounter'
+    // })
   },
   // computed: {
   //   parentCounter() {
